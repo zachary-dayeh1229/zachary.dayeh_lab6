@@ -28,6 +28,16 @@ def encode():  # encodes password.
 
     return encoded_password  # returns the encoded password.
 
+def decode(user_password):
+    user_password = user_password
+    decoded_password = [str((int(i)-3)) for i in str(user_password)]
+    decoded_password = "".join(decoded_password)
+    print(f"The encoded password is {user_password}, and the original password is {decoded_password}")
+    print()
+
+    return decoded_password
+
+
 if __name__ == "__main__":
 
     display_menu = True  # boolean
@@ -37,7 +47,10 @@ if __name__ == "__main__":
         menu_option = menu()  # calls menu to print and return value.
 
         if menu_option == 1:
-            encode()  # calls encode function.
+            encoded_password = encode()  # calls encode function.
+
+        if menu_option == 2:
+            decoded_password = decode(encoded_password)
 
         if menu_option == 3:
             break
